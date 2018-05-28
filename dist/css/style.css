@@ -1,2 +1,18 @@
-body {
-  background-color: #000; }
+.testimonials-body {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500; }
+  .testimonials-body .testimonials-circle,
+  .testimonials-body .testimonials-text {
+    -ms-flex: 1;
+        flex: 1; }
+  .testimonials-body h2 {
+    text-align: center;
+    color: #E24A4A; }
+  .testimonials-body .testimonials-desc {
+    text-align: center;
+    padding: 10px 40px;
+    font-weight: 300;
+    line-height: 1.5; }
