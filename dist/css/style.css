@@ -29,3 +29,11 @@
     position: absolute;
     background: blue;
     border-radius: 50%; }
+    #testimonials-body .testimonials-circle .small-thumb img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%; }
+    #testimonials-body .testimonials-circle .small-thumb div {
+      position: absolute;
+      top: 50%;
+      right: -10; }
