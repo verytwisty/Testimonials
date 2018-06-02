@@ -1,9 +1,5 @@
 export default class Data{
 
-	static test(){
-		return 'aaa';
-	}
-
 	static testimonials(){
 		var data =
 		[

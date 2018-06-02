@@ -33,18 +33,26 @@ $light-grey: #D1D1D1;
 			margin: 0 auto;
 			position: relative;
 		}
-		.small-thumb{
+		.small-thumb,
+		.large-thumb{
 			width: 50px;
 			height: 50px;
-			position: absolute;
-			background: blue;
 			border-radius: 50%;
+			border: 2px solid transparent;
+			&.border{
+				border: 2px solid $red;
+			}
 			img{
 				width: 100%;
 				height: auto;
 				border-radius: 50%;
 			}
+		}
+		.small-thumb{
+			position: absolute;
+			
 			div{
+				display: none;
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
@@ -54,7 +62,16 @@ $light-grey: #D1D1D1;
 				padding: 5px;
 				border: 1px solid $light-grey;
 				white-space: nowrap;
+				&.visible{
+					display: block;
+				}
 			}
+		}
+		.large-thumb{
+			width: 250px;
+			height: 250px;
+			padding: 75px;
+			position: relative;
 		}
 	}
 }
