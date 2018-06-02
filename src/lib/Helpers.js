@@ -8,28 +8,28 @@ export default class Helpers{
 
 		return newCircle;
 	}
-	static createSmallThumbnail( x, y ){
+	static createSmallThumbnail( x, y, image, name ){
 		let thumbnail = document.createElement('div');
 
 		thumbnail.classList.add('small-thumb');
 		thumbnail.setAttribute("style", "left:" + x + "px; top:" + y +"px;");
 
-		thumbnail.appendChild( Helpers.createImg() );
-		thumbnail.appendChild( Helpers.createToolTip() );
+		thumbnail.appendChild( Helpers.createImg( image ) );
+		thumbnail.appendChild( Helpers.createToolTip( name ) );
 
 		return thumbnail;
 	}
-	static createImg(){
+	static createImg( image ){
 		let portrait = document.createElement('img');
 
-		portrait.setAttribute('src', '../../../uploads/2018/05/portrait-1-150x150.jpg');
+		portrait.setAttribute('src', image );
 		return portrait;
 	}
-	static createToolTip(){
+	static createToolTip( name ){
 		let toolTip = document.createElement('div'),
-			name = document.createTextNode('John Smith');
+			personName = document.createTextNode( name );
 
-		toolTip.appendChild(name);
+		toolTip.appendChild(personName);
 		return toolTip;
 	}
 }
