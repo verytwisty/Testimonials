@@ -1,5 +1,6 @@
 import config from '../../lib/config';
 import Helpers from '../../lib/Helpers';
+import Router from '../../lib/Router';
 import Data from '../../lib/Data';
 import Testimonial from '../Testimonial/index.js';
 
@@ -7,8 +8,17 @@ export default class Circles{
 	static render(){
 
 		let circleBox = config.circleBox,
+			textBox = config.textBox,
+			data = Data.testimonials(),
+			blurb = Data.blurb(),
 			newCircle = Helpers.createCircle(),
-			data = Data.testimonials();
+			newTitle = Helpers.createTestimonialsTitle( blurb.heading ),
+			newBlurb = Helpers.createNewBlurb( blurb.description, 'testimonials-desc' );
+
+
+
+		textBox.appendChild( newTitle );
+		textBox.appendChild( newBlurb );
 
 		circleBox.appendChild( newCircle );
 
@@ -28,9 +38,7 @@ export default class Circles{
 
 		    personThumb.addEventListener("mouseover", Helpers.showPersonName, false);
 			personThumb.addEventListener("mouseout", Helpers.hidePersonName, false);
-			personThumb.addEventListener("click", Testimonial.render.bind(personData, personThumb), false);
-
-		    // console.log(personThumb);
+			personThumb.addEventListener("click", Router.makeTestimonialPage.bind(personData, personThumb), false);
 
 		}
 

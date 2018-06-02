@@ -11,49 +11,66 @@
   #testimonials-body h2 {
     text-align: center;
     color: #E24A4A; }
+  #testimonials-body .button {
+    margin: 5px auto;
+    background-color: #E24A4A;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 13px;
+    color: #fff;
+    text-decoration: none; }
   #testimonials-body .testimonials-desc {
     text-align: center;
     padding: 10px 40px;
     font-weight: 300;
     line-height: 1.5; }
-  #testimonials-body .testimonials-circle .circle {
-    border-radius: 50%;
+  #testimonials-body .quote {
     border: 1px solid #E24A4A;
-    width: 400px;
-    height: 400px;
-    margin: 0 auto;
-    position: relative; }
-  #testimonials-body .testimonials-circle .small-thumb,
-  #testimonials-body .testimonials-circle .large-thumb {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid transparent; }
-    #testimonials-body .testimonials-circle .small-thumb.border,
-    #testimonials-body .testimonials-circle .large-thumb.border {
-      border: 2px solid #E24A4A; }
-    #testimonials-body .testimonials-circle .small-thumb img,
-    #testimonials-body .testimonials-circle .large-thumb img {
-      width: 100%;
-      height: auto;
-      border-radius: 50%; }
-  #testimonials-body .testimonials-circle .small-thumb {
-    position: absolute; }
-    #testimonials-body .testimonials-circle .small-thumb div {
-      display: none;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 50px;
-      background-color: #fff;
-      z-index: 5;
-      padding: 5px;
-      border: 1px solid #D1D1D1;
-      white-space: nowrap; }
-      #testimonials-body .testimonials-circle .small-thumb div.visible {
-        display: block; }
-  #testimonials-body .testimonials-circle .large-thumb {
-    width: 250px;
-    height: 250px;
-    padding: 75px;
-    position: relative; }
+    border-radius: 3px;
+    padding: 20px;
+    font-weight: 300;
+    line-height: 1.5; }
+  #testimonials-body .testimonials-circle {
+    text-align: center; }
+    #testimonials-body .testimonials-circle .circle {
+      border-radius: 50%;
+      border: 1px solid #E24A4A;
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+      position: relative; }
+    #testimonials-body .testimonials-circle .small-thumb,
+    #testimonials-body .testimonials-circle .large-thumb {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid transparent; }
+      #testimonials-body .testimonials-circle .small-thumb.border,
+      #testimonials-body .testimonials-circle .large-thumb.border {
+        border: 2px solid #E24A4A; }
+      #testimonials-body .testimonials-circle .small-thumb img,
+      #testimonials-body .testimonials-circle .large-thumb img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%; }
+    #testimonials-body .testimonials-circle .small-thumb {
+      position: absolute; }
+      #testimonials-body .testimonials-circle .small-thumb div {
+        display: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 50px;
+        background-color: #fff;
+        z-index: 5;
+        padding: 5px;
+        border: 1px solid #D1D1D1;
+        white-space: nowrap; }
+        #testimonials-body .testimonials-circle .small-thumb div.visible {
+          display: block; }
+    #testimonials-body .testimonials-circle .large-thumb {
+      width: 200px;
+      height: 200px;
+      padding: 50px;
+      position: relative;
+      margin: 0 auto; }

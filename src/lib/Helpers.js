@@ -1,19 +1,30 @@
 import config from './config.js';
-import Testimonial from '../components/Testimonial/index.js';
+import Router from './Router.js';
 
 
 export default class Helpers{
+	static createTestimonialsTitle( title ){
+		let titleMarkup = document.createElement('h2'),
+			titleTxt = document.createTextNode(title);
+
+		titleMarkup.appendChild(titleTxt);
+		return titleMarkup;
+	}
+	static createNewBlurb( description, className ){
+		let blurbMarukp = document.createElement('div'),
+			blurbTxt = document.createTextNode(description);
+
+		blurbMarukp.appendChild(blurbTxt);
+		blurbMarukp.classList.add( className );
+
+		return blurbMarukp;
+	}
 	static createCircle(){
 
 		let newCircle = document.createElement('div');
 		newCircle.classList.add('circle');
 
 		return newCircle;
-	}
-	static removeCircle(){
-		let circle = document.querySelector('.circle');
-
-		circle.remove();
 	}
 	static createSmallThumbnail( x, y, person ){
 		let thumbnail = document.createElement('div');
@@ -22,7 +33,7 @@ export default class Helpers{
 		thumbnail.setAttribute("style", "left:" + x + "px; top:" + y +"px;");
 
 		thumbnail.appendChild( Helpers.createImg( person.image ) );
-		thumbnail.appendChild( Helpers.createToolTip( person.name ) );
+		thumbnail.appendChild( Helpers.createPersonName( person.name, 'div', 'tool-tip' ) );
 
 		return thumbnail;
 	}
@@ -32,12 +43,31 @@ export default class Helpers{
 		portrait.setAttribute('src', image );
 		return portrait;
 	}
-	static createToolTip( name ){
-		let toolTip = document.createElement('div'),
+	static createPersonName( name, markup, className = 'name' ){
+		let nameMarkup = document.createElement(markup),
 			personName = document.createTextNode( name );
 
-		toolTip.appendChild(personName);
-		return toolTip;
+		nameMarkup.appendChild(personName);
+		nameMarkup.classList.add(className);
+
+		return nameMarkup;
+	}
+	static createPersonTitle( title ){
+		let titleMarkup = document.createElement('h3'),
+			titleTxt = document.createTextNode(title);
+
+		titleMarkup.appendChild(titleTxt);
+		return titleMarkup;
+	}
+	static createBackBtn(){
+		let btn = document.createElement('a'),
+			btnTxt = document.createTextNode('More People');
+
+		btn.appendChild( btnTxt );
+		btn.classList.add('button');
+		btn.setAttribute('href', '#');
+
+		return btn
 	}
 	static showPersonName(){
 		var image = this.children[0];
@@ -63,7 +93,11 @@ export default class Helpers{
 
 			circle.removeEventListener("mouseover", Helpers.showPersonName, false);
 			circle.removeEventListener("mouseout", Helpers.hidePersonName, false);
-			circle.removeEventListener("click", Testimonial.render, false);
+			circle.removeEventListener("click", Router.makeTestimonialPage.bind(), false);
 		}
+	}
+	static clearPage(){
+		config.circleBox.innerHTML = '';
+		config.textBox.innerHTML = '';
 	}
 }

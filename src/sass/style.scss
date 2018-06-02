@@ -18,13 +18,30 @@ $light-grey: #D1D1D1;
 		text-align: center;
 		color: $red;
 	}
+	.button{
+		margin: 5px auto;
+		background-color: $red;
+		border-radius: 5px;
+		display: inline-block;
+		padding: 10px 13px;
+		color: #fff;
+		text-decoration: none;
+	}
 	.testimonials-desc{
 		text-align: center;
 		padding: 10px 40px;
 		font-weight: 300;
 		line-height: 1.5;
 	}
+	.quote{
+		border: 1px solid $red;
+		border-radius: 3px;
+		padding: 20px;
+		font-weight: 300;
+		line-height: 1.5;
+	}
 	.testimonials-circle{
+		text-align: center;
 		.circle{
 			border-radius: 50%;
 			border: 1px solid $red;
@@ -50,7 +67,6 @@ $light-grey: #D1D1D1;
 		}
 		.small-thumb{
 			position: absolute;
-			
 			div{
 				display: none;
 				position: absolute;
@@ -68,10 +84,11 @@ $light-grey: #D1D1D1;
 			}
 		}
 		.large-thumb{
-			width: 250px;
-			height: 250px;
-			padding: 75px;
+			width: 200px;
+			height: 200px;
+			padding: 50px;
 			position: relative;
+			margin: 0 auto;
 		}
 	}
 }

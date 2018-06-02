@@ -66,4 +66,11 @@ export default class Data{
 		]
 		return data;
 	}
+	static blurb(){
+		var text = {
+			"heading":"Testimonials",
+			"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus."
+		}
+		return text;
+	}
 }
