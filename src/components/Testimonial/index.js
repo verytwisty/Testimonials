@@ -9,10 +9,10 @@ export default class Testimonial{
 		let circleBox = config.circleBox,
 			textBox = config.textBox,
 			toolTip = thumbnail.getElementsByClassName('tool-tip')[0],
-			personName = Helpers.createPersonName( data.name, 'h2', 'name' ),
+			personName = Helpers.createPersonName( data.title.rendered, 'h2', 'name' ),
 			btn = Helpers.createBackBtn(),
-			blurb = Helpers.createNewBlurb(data.testimonial, 'quote'),
-			personTitle = Helpers.createPersonTitle(data.title);
+			blurb = Helpers.createNewBlurb(data.content.rendered, 'quote');
+			// personTitle = Helpers.createPersonTitle(data.title);
 
 		toolTip.remove();
 		thumbnail.classList.remove( 'small-thumb' );
@@ -22,7 +22,7 @@ export default class Testimonial{
 
 		circleBox.append(thumbnail);
 		circleBox.append( personName );
-		circleBox.append( personTitle );
+		// circleBox.append( personTitle );
 		circleBox.append( btn );
 
 		btn.addEventListener('click', Router.makeCirclesPage, false );

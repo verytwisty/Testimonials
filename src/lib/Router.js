@@ -1,12 +1,12 @@
 import config from './config';
 import Helpers from './Helpers';
-import Circles from '../components/Circles/index.js';
+import Data from '../components/Data/index.js';
 import Testimonial from '../components/Testimonial/index.js';
 
 export default class Router{
 	static makeCirclesPage(){
 		Helpers.clearPage();
-		Circles.render();
+		Data.render();
 	}
 	static makeTestimonialPage(thumbnail, event){
 		// remove all event listeners.

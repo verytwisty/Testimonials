@@ -5,11 +5,11 @@ import Data from '../../lib/Data';
 import Testimonial from '../Testimonial/index.js';
 
 export default class Circles{
-	static render(){
+	static render( data ){
 
 		let circleBox = config.circleBox,
 			textBox = config.textBox,
-			data = Data.testimonials(),
+			// data = Data.testimonials(),
 			blurb = Data.blurb(),
 			outerCircle = Helpers.createCircle('outer-circle'),
 			innerCircle = Helpers.createCircle('inner-circle'),
@@ -18,6 +18,8 @@ export default class Circles{
 			displayInnerCircle = false,
 			innerData;
 
+			console.log(data);
+			console.log(data.length);
 
 		// append testimonial text on the right side
 		textBox.appendChild( newTitle );

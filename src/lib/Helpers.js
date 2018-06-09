@@ -11,10 +11,9 @@ export default class Helpers{
 		return titleMarkup;
 	}
 	static createNewBlurb( description, className ){
-		let blurbMarukp = document.createElement('div'),
-			blurbTxt = document.createTextNode(description);
+		let blurbMarukp = document.createElement('div');
 
-		blurbMarukp.appendChild(blurbTxt);
+		blurbMarukp.innerHTML = description;
 		blurbMarukp.classList.add( className );
 
 		return blurbMarukp;
@@ -27,13 +26,14 @@ export default class Helpers{
 		return newCircle;
 	}
 	static createSmallThumbnail( x, y, person ){
-		let thumbnail = document.createElement('div');
+		let thumbnail = document.createElement('div'),
+			thumbImage = person._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url;
 
 		thumbnail.classList.add('small-thumb');
 		thumbnail.setAttribute("style", "left:" + x + "px; top:" + y +"px;");
 
-		thumbnail.appendChild( Helpers.createImg( person.image ) );
-		thumbnail.appendChild( Helpers.createPersonName( person.name, 'div', 'tool-tip' ) );
+		thumbnail.appendChild( Helpers.createImg( thumbImage ) );
+		thumbnail.appendChild( Helpers.createPersonName( person.title.rendered, 'div', 'tool-tip' ) );
 
 		return thumbnail;
 	}
