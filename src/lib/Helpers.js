@@ -19,10 +19,10 @@ export default class Helpers{
 
 		return blurbMarukp;
 	}
-	static createCircle(){
+	static createCircle( className ){
 
 		let newCircle = document.createElement('div');
-		newCircle.classList.add('circle');
+		newCircle.classList.add( className );
 
 		return newCircle;
 	}
@@ -67,7 +67,7 @@ export default class Helpers{
 		btn.classList.add('button');
 		btn.setAttribute('href', '#');
 
-		return btn
+		return btn;
 	}
 	static showPersonName(){
 		var image = this.children[0];
@@ -99,5 +99,41 @@ export default class Helpers{
 	static clearPage(){
 		config.circleBox.innerHTML = '';
 		config.textBox.innerHTML = '';
+	}
+	static addPeopleToCircles( circle, array ){
+
+		// Found from here http://jsfiddle.net/jE26S/12/
+
+		var items = array.length,
+			circleWidth = circle.offsetWidth / 2;
+
+		for(let i = 0; i < items; i++) {
+
+			let personData = array[i];
+
+		    var x = circleWidth - 25 + circleWidth * Math.cos(2 * Math.PI * i / items);
+		    var y = circleWidth - 25 + circleWidth * Math.sin(2 * Math.PI * i / items);
+
+		    let personThumb = Helpers.createSmallThumbnail( x, y, personData );
+
+		    circle.appendChild(personThumb );
+
+		    personThumb.addEventListener("mouseover", Helpers.showPersonName, false);
+			personThumb.addEventListener("mouseout", Helpers.hidePersonName, false);
+			personThumb.addEventListener("click", Router.makeTestimonialPage.bind(personData, personThumb), false);
+
+		}
+	}
+	static shuffleArray(array) {
+
+		// randomise the array
+		// function found here https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+
+	    for (let i = array.length - 1; i > 0; i--) {
+	        const j = Math.floor(Math.random() * (i + 1));
+	        [array[i], array[j]] = [array[j], array[i]];
+	    }
+
+	    return array;
 	}
 }

@@ -31,14 +31,24 @@
     font-weight: 300;
     line-height: 1.5; }
   #testimonials-body .testimonials-circle {
-    text-align: center; }
-    #testimonials-body .testimonials-circle .circle {
+    text-align: center;
+    position: relative; }
+    #testimonials-body .testimonials-circle .outer-circle {
       border-radius: 50%;
       border: 1px solid #E24A4A;
       width: 400px;
       height: 400px;
       margin: 0 auto;
       position: relative; }
+    #testimonials-body .testimonials-circle .inner-circle {
+      border-radius: 50%;
+      border: 1px solid #D1D1D1;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); }
     #testimonials-body .testimonials-circle .small-thumb,
     #testimonials-body .testimonials-circle .large-thumb {
       width: 50px;

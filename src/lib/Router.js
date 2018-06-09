@@ -11,8 +11,10 @@ export default class Router{
 	static makeTestimonialPage(thumbnail, event){
 		// remove all event listeners.
 		Helpers.resetEventListenersCircles();
+
+		// clear page
 		Helpers.clearPage();
-		
+		// render single testimonial
 		Testimonial.render( this, thumbnail, event )
 	}
 }

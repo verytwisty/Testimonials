@@ -42,13 +42,25 @@ $light-grey: #D1D1D1;
 	}
 	.testimonials-circle{
 		text-align: center;
-		.circle{
+		position: relative;
+		.outer-circle{
 			border-radius: 50%;
 			border: 1px solid $red;
 			width: 400px;
 			height: 400px;
 			margin: 0 auto;
 			position: relative;
+
+		}
+		.inner-circle{
+			border-radius: 50%;
+			border: 1px solid $light-grey;
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
 		}
 		.small-thumb,
 		.large-thumb{

@@ -11,35 +11,43 @@ export default class Circles{
 			textBox = config.textBox,
 			data = Data.testimonials(),
 			blurb = Data.blurb(),
-			newCircle = Helpers.createCircle(),
+			outerCircle = Helpers.createCircle('outer-circle'),
+			innerCircle = Helpers.createCircle('inner-circle'),
 			newTitle = Helpers.createTestimonialsTitle( blurb.heading ),
-			newBlurb = Helpers.createNewBlurb( blurb.description, 'testimonials-desc' );
+			newBlurb = Helpers.createNewBlurb( blurb.description, 'testimonials-desc' ),
+			displayInnerCircle = false,
+			innerData;
 
 
-
+		// append testimonial text on the right side
 		textBox.appendChild( newTitle );
 		textBox.appendChild( newBlurb );
 
-		circleBox.appendChild( newCircle );
+		// shuffle the array to make it more interesting!
+		data = Helpers.shuffleArray( data );
 
-		// Found from here http://jsfiddle.net/jE26S/12/
+		// if data length is greater than 5 people add an inner circle
 
-		var items = data.length;
-		for(let i = 0; i < items; i++) {
+		if( data.length > 5 ){
 
-			let personData = data[i];
+			// get length of one third of the data
+			let splitArray = Math.round( data.length / 3 );
+			// set display circle to true
+			displayInnerCircle = true;
+			// get the data for the inner circle
+			innerData = data.slice( 0,splitArray );
+			// remove inner circle data from data.
+			data.splice( 0,splitArray );
+		}
 
-		    var x = 200 - 25 + 200 * Math.cos(2 * Math.PI * i / items);
-		    var y = 200 - 25 + 200 * Math.sin(2 * Math.PI * i / items);
+		// add outer circle to page
+		circleBox.appendChild( outerCircle );
+		Helpers.addPeopleToCircles( outerCircle, data );
 
-		    let personThumb = Helpers.createSmallThumbnail( x, y, personData );
+		if(displayInnerCircle === true ){
 
-		    newCircle.appendChild(personThumb );
-
-		    personThumb.addEventListener("mouseover", Helpers.showPersonName, false);
-			personThumb.addEventListener("mouseout", Helpers.hidePersonName, false);
-			personThumb.addEventListener("click", Router.makeTestimonialPage.bind(personData, personThumb), false);
-
+			circleBox.appendChild( innerCircle );
+			Helpers.addPeopleToCircles( innerCircle, innerData );
 		}
 
 	}
