@@ -25,13 +25,14 @@ export default class Testimonial{
 		// circleBox.append( personTitle );
 		circleBox.append( btn );
 
-		btn.addEventListener('click', Router.makeCirclesPage, false );
+		btn.addEventListener('click', makeCirclesPage , false );
+
+		function makeCirclesPage(e){
+			e.preventDefault();
+			Router.makeCirclesPage()
+		}
 
 		textBox.append(blurb);
-
-		// console.log( personName );
-		// console.log(event);
-		// console.log(thumbnail);
 
 	}
 }

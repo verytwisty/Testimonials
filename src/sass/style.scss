@@ -6,13 +6,18 @@ $light-grey: #D1D1D1;
 
 
 #testimonials-body{
-	display: flex;
 	padding: 20px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 500;
+	@media screen and(min-width: 750px) {
+		display: flex;
+	}
 	.testimonials-circle,
 	.testimonials-text{
 		flex: 1;
+	}
+	.testimonials-circle{
+		margin: 0 20px 30px;
 	}
 	h2{
 		text-align: center;
@@ -46,8 +51,7 @@ $light-grey: #D1D1D1;
 		.outer-circle{
 			border-radius: 50%;
 			border: 1px solid $red;
-			width: 400px;
-			height: 400px;
+			width: 100%;
 			margin: 0 auto;
 			position: relative;
 
@@ -55,8 +59,8 @@ $light-grey: #D1D1D1;
 		.inner-circle{
 			border-radius: 50%;
 			border: 1px solid $light-grey;
-			width: 200px;
-			height: 200px;
+			width: 50%;
+			height: 50%;
 			position: absolute;
 			left: 50%;
 			top: 50%;

@@ -7,7 +7,7 @@ export default class Helpers{
 		let titleMarkup = document.createElement('h2'),
 			titleTxt = document.createTextNode(title);
 
-		titleMarkup.appendChild(titleTxt);
+		titleMarkup.append(titleTxt);
 		return titleMarkup;
 	}
 	static createNewBlurb( description, className ){
@@ -32,8 +32,8 @@ export default class Helpers{
 		thumbnail.classList.add('small-thumb');
 		thumbnail.setAttribute("style", "left:" + x + "px; top:" + y +"px;");
 
-		thumbnail.appendChild( Helpers.createImg( thumbImage ) );
-		thumbnail.appendChild( Helpers.createPersonName( person.title.rendered, 'div', 'tool-tip' ) );
+		thumbnail.append( Helpers.createImg( thumbImage ) );
+		thumbnail.append( Helpers.createPersonName( person.title.rendered, 'div', 'tool-tip' ) );
 
 		return thumbnail;
 	}
@@ -47,7 +47,7 @@ export default class Helpers{
 		let nameMarkup = document.createElement(markup),
 			personName = document.createTextNode( name );
 
-		nameMarkup.appendChild(personName);
+		nameMarkup.append(personName);
 		nameMarkup.classList.add(className);
 
 		return nameMarkup;
@@ -56,14 +56,14 @@ export default class Helpers{
 		let titleMarkup = document.createElement('h3'),
 			titleTxt = document.createTextNode(title);
 
-		titleMarkup.appendChild(titleTxt);
+		titleMarkup.append(titleTxt);
 		return titleMarkup;
 	}
 	static createBackBtn(){
 		let btn = document.createElement('a'),
 			btnTxt = document.createTextNode('More People');
 
-		btn.appendChild( btnTxt );
+		btn.append( btnTxt );
 		btn.classList.add('button');
 		btn.setAttribute('href', '#');
 
@@ -100,7 +100,7 @@ export default class Helpers{
 		config.circleBox.innerHTML = '';
 		config.textBox.innerHTML = '';
 	}
-	static addPeopleToCircles( circle, array ){
+	static addPeopleToCircles( circle, array, responsive ){
 
 		// Found from here http://jsfiddle.net/jE26S/12/
 
@@ -114,13 +114,20 @@ export default class Helpers{
 		    var x = circleWidth - 25 + circleWidth * Math.cos(2 * Math.PI * i / items);
 		    var y = circleWidth - 25 + circleWidth * Math.sin(2 * Math.PI * i / items);
 
-		    let personThumb = Helpers.createSmallThumbnail( x, y, personData );
+		    if( false === responsive ){
 
-		    circle.appendChild(personThumb );
+			    let personThumb = Helpers.createSmallThumbnail( x, y, personData );
 
-		    personThumb.addEventListener("mouseover", Helpers.showPersonName, false);
-			personThumb.addEventListener("mouseout", Helpers.hidePersonName, false);
-			personThumb.addEventListener("click", Router.makeTestimonialPage.bind(personData, personThumb), false);
+			    circle.append(personThumb );
+
+			    personThumb.addEventListener("mouseover", Helpers.showPersonName, false);
+				personThumb.addEventListener("mouseout", Helpers.hidePersonName, false);
+				personThumb.addEventListener("click", Router.makeTestimonialPage.bind(personData, personThumb), false);
+			}
+			if( true === responsive ){
+
+				personData.setAttribute("style", "left:" + x + "px; top:" + y +"px;");
+			}
 
 		}
 	}

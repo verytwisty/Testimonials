@@ -1,18 +1,17 @@
 import config from '../../lib/config';
 import Helpers from '../../lib/Helpers';
 import Router from '../../lib/Router';
-import Data from '../../lib/Data';
 import Testimonial from '../Testimonial/index.js';
 
 export default class Circles{
 	static render( data ){
 
 		let circleBox = config.circleBox,
+			circleBoxWidth = circleBox.offsetWidth,
 			outerCircle = Helpers.createCircle('outer-circle'),
 			innerCircle = Helpers.createCircle('inner-circle'),
 			displayInnerCircle = false,
 			innerData;
-
 
 		// shuffle the array to make it more interesting!
 		data = Helpers.shuffleArray( data );
@@ -32,13 +31,32 @@ export default class Circles{
 		}
 
 		// add outer circle to page
-		circleBox.appendChild( outerCircle );
-		Helpers.addPeopleToCircles( outerCircle, data );
+		circleBox.append( outerCircle );
+		Helpers.addPeopleToCircles( outerCircle, data, false );
+		outerCircle.style.height = circleBoxWidth + 'px';
 
 		if(displayInnerCircle === true ){
 
-			circleBox.appendChild( innerCircle );
-			Helpers.addPeopleToCircles( innerCircle, innerData );
+			outerCircle.append( innerCircle );
+			Helpers.addPeopleToCircles( innerCircle, innerData, false );
+		}
+
+		window.addEventListener('resize', ChangeCircleHeight, false);
+
+		function ChangeCircleHeight(){
+			var newCircleBoxWidth = outerCircle.offsetWidth,
+				peopleCircles = document.querySelectorAll('.outer-circle > .small-thumb');
+
+			outerCircle.style.height =  newCircleBoxWidth + 'px';
+			Helpers.addPeopleToCircles( outerCircle, peopleCircles, true );
+
+			if(displayInnerCircle === true ){
+
+				let peopleCirclesInner = document.querySelectorAll('.inner-circle > .small-thumb');;
+
+				Helpers.addPeopleToCircles( innerCircle, peopleCirclesInner, true );
+
+			}
 		}
 
 	}

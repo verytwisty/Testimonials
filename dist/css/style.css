@@ -1,13 +1,17 @@
 #testimonials-body {
-  display: -ms-flexbox;
-  display: flex;
   padding: 20px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500; }
+  @media screen and (min-width: 750px) {
+    #testimonials-body {
+      display: -ms-flexbox;
+      display: flex; } }
   #testimonials-body .testimonials-circle,
   #testimonials-body .testimonials-text {
     -ms-flex: 1;
         flex: 1; }
+  #testimonials-body .testimonials-circle {
+    margin: 0 20px 30px; }
   #testimonials-body h2 {
     text-align: center;
     color: #E24A4A; }
@@ -36,15 +40,14 @@
     #testimonials-body .testimonials-circle .outer-circle {
       border-radius: 50%;
       border: 1px solid #E24A4A;
-      width: 400px;
-      height: 400px;
+      width: 100%;
       margin: 0 auto;
       position: relative; }
     #testimonials-body .testimonials-circle .inner-circle {
       border-radius: 50%;
       border: 1px solid #D1D1D1;
-      width: 200px;
-      height: 200px;
+      width: 50%;
+      height: 50%;
       position: absolute;
       left: 50%;
       top: 50%;
