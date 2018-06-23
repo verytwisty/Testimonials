@@ -8,22 +8,11 @@ export default class Circles{
 	static render( data ){
 
 		let circleBox = config.circleBox,
-			textBox = config.textBox,
-			// data = Data.testimonials(),
-			blurb = Data.blurb(),
 			outerCircle = Helpers.createCircle('outer-circle'),
 			innerCircle = Helpers.createCircle('inner-circle'),
-			newTitle = Helpers.createTestimonialsTitle( blurb.heading ),
-			newBlurb = Helpers.createNewBlurb( blurb.description, 'testimonials-desc' ),
 			displayInnerCircle = false,
 			innerData;
 
-			console.log(data);
-			console.log(data.length);
-
-		// append testimonial text on the right side
-		textBox.appendChild( newTitle );
-		textBox.appendChild( newBlurb );
 
 		// shuffle the array to make it more interesting!
 		data = Helpers.shuffleArray( data );

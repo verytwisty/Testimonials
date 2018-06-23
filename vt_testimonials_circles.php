@@ -56,6 +56,9 @@ function _get_plugin_url() {
 // Add Custom Post type
 include __DIR__ . '/lib/testimonials_cpt.php';
 
+// Add Shortcode
+include __DIR__ . '/lib/testimonials_shortcode.php';
+
 // Enqueue JS & CSS
-// include __DIR__ . '/lib/enqueue-scripts.php';
+include __DIR__ . '/lib/scripts_styles.php';
 
