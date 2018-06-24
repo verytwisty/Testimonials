@@ -4,6 +4,8 @@ let config = {
 	testimonial: document.querySelector('#testimonials-body'),
 	circleBox: document.querySelector('.testimonials-circle'),
 	textBox: document.querySelector('.testimonials-text'),
+	dataNumber: document.querySelector('#testimonials-body').getAttribute('data-number'),
+	dataRandom: document.querySelector('#testimonials-body').getAttribute('data-random'),
 	apiRoot: 'http://js4wp.test/wp-json/',
 };
 
