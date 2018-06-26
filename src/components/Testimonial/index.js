@@ -11,8 +11,11 @@ export default class Testimonial{
 			toolTip = thumbnail.getElementsByClassName('tool-tip')[0],
 			personName = Helpers.createPersonName( data.title.rendered, 'h2', 'name' ),
 			btn = Helpers.createBackBtn(),
-			blurb = Helpers.createNewBlurb(data.content.rendered, 'quote');
-			// personTitle = Helpers.createPersonTitle(data.title);
+			blurb = Helpers.createNewBlurb(data.content.rendered, 'quote'),
+			// personTitle = Helpers.createPersonTitle(data.vt_testimonials_jobtitle[0]);
+			personTitle = data.vt_testimonials_jobtitle;
+
+			console.log(data);
 
 		toolTip.remove();
 		thumbnail.classList.remove( 'small-thumb' );
@@ -22,7 +25,12 @@ export default class Testimonial{
 
 		circleBox.append(thumbnail);
 		circleBox.append( personName );
-		// circleBox.append( personTitle );
+
+		// check to see if they have a job title, if so append it.
+
+		if( personTitle.length != 0 ){
+			circleBox.append( Helpers.createPersonTitle( personTitle[0] ) );
+		}
 		circleBox.append( btn );
 
 		btn.addEventListener('click', makeCirclesPage , false );

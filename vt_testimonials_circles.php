@@ -59,6 +59,9 @@ include __DIR__ . '/lib/testimonials_cpt.php';
 // Add Shortcode
 include __DIR__ . '/lib/testimonials_shortcode.php';
 
+// Add Job Title Metabox
+include __DIR__ . '/lib/testimonials_metabox.php';
+
 // Enqueue JS & CSS
 include __DIR__ . '/lib/scripts_styles.php';
 
