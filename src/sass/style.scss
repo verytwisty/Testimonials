@@ -41,9 +41,32 @@ $light-grey: #D1D1D1;
 	.quote{
 		border: 1px solid $red;
 		border-radius: 3px;
-		padding: 20px;
+		padding: 15px 20px;
 		font-weight: 300;
 		line-height: 1.5;
+		position: relative;
+		&:after{
+			content: '';
+			position: absolute;
+			top: 20px;
+			left: -25px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 15px 25px 15px 0;
+			border-color: transparent #fff transparent transparent;
+		}
+		&:before{
+			content: '';
+			position: absolute;
+			top: 19px;
+			left: -26px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 16px 26px 16px 0;
+			border-color: transparent $red transparent transparent;
+		}
 	}
 	.testimonials-circle{
 		text-align: center;
@@ -68,8 +91,6 @@ $light-grey: #D1D1D1;
 		}
 		.small-thumb,
 		.large-thumb{
-			width: 50px;
-			height: 50px;
 			border-radius: 50%;
 			border: 2px solid transparent;
 			&.border{
@@ -82,18 +103,47 @@ $light-grey: #D1D1D1;
 			}
 		}
 		.small-thumb{
+			width: 50px;
+			height: 50px;
 			position: absolute;
 			div{
 				display: none;
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
-				left: 50px;
+				left: 65px;
 				background-color: #fff;
 				z-index: 5;
-				padding: 5px;
+				border-radius: 3px;
+				padding: 5px 7px;
 				border: 1px solid $light-grey;
 				white-space: nowrap;
+				&:before{
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: -16px;
+					transform: translateY(-50%);
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 11px 16px 11px 0;
+					border-color: transparent $light-grey transparent transparent;
+
+				}
+				&:after{
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: -15px;
+					transform: translateY(-50%);
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 10px 15px 10px 0;
+					border-color: transparent #ffffff transparent transparent;
+
+				}
 				&.visible{
 					display: block;
 				}
@@ -102,7 +152,7 @@ $light-grey: #D1D1D1;
 		.large-thumb{
 			width: 200px;
 			height: 200px;
-			padding: 50px;
+			padding: 30px;
 			position: relative;
 			margin: 0 auto;
 		}

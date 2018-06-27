@@ -64,7 +64,7 @@ function vt_testimonials_save_meta( $post_id, $post ) {
     return $post_id;
 
   /* Get the posted data and sanitize it for use as an HTML class. */
-  $new_meta_value = ( isset( $_POST['vt-testimonials-jobtitle'] ) ? sanitize_html_class( $_POST['vt-testimonials-jobtitle'] ) : '' );
+  $new_meta_value = ( isset( $_POST['vt-testimonials-jobtitle'] ) ? sanitize_text_field( $_POST['vt-testimonials-jobtitle'] ) : '' );
 
   /* Get the meta key. */
   $meta_key = 'vt_testimonials_jobtitle';
