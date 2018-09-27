@@ -71,7 +71,7 @@ add_action( 'init', 'vt_testimonials_circles', 0 );
 // found from https://wordpress.org/support/topic/disable-gutenberg-on-pages-or-specific-post-type/
 
 function gutenberg_cant_edit_this( $can_edit, $post_type ) {
-	if ( 'vt_testimonials' ) {
+	if ( 'vt_testimonials' === get_post_type() ) {
 		$can_edit = false;
 	}
 	return $can_edit;

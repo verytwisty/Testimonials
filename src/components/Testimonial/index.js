@@ -2,6 +2,7 @@ import config from '../../lib/config';
 import Helpers from '../../lib/Helpers';
 import Router from '../../lib/Router';
 import Data from '../../lib/Data';
+import Animations from '../../lib/Animations';
 
 export default class Testimonial{
 	static render(data, thumbnail, event){
@@ -12,16 +13,10 @@ export default class Testimonial{
 			personName = Helpers.createPersonName( data.title.rendered, 'h2', 'name' ),
 			btn = Helpers.createBackBtn(),
 			blurb = Helpers.createNewBlurb(data.content.rendered, 'quote'),
-			// personTitle = Helpers.createPersonTitle(data.vt_testimonials_jobtitle[0]);
-			personTitle = data.vt_testimonials_jobtitle;
-
-			console.log(data);
+			personTitle = data.vt_testimonials_jobtitle,
+			jobTitle;
 
 		toolTip.remove();
-		thumbnail.classList.remove( 'small-thumb' );
-		thumbnail.classList.add('large-thumb');
-		thumbnail.setAttribute( 'style', "left: 0; top: 0;" );
-
 
 		circleBox.append(thumbnail);
 		circleBox.append( personName );
@@ -29,7 +24,8 @@ export default class Testimonial{
 		// check to see if they have a job title, if so append it.
 
 		if( personTitle.length != 0 ){
-			circleBox.append( Helpers.createPersonTitle( personTitle[0] ) );
+			let jobTitle = Helpers.createPersonTitle( personTitle[0] );
+			circleBox.append( jobTitle );
 		}
 		circleBox.append( btn );
 
@@ -41,6 +37,18 @@ export default class Testimonial{
 		}
 
 		textBox.append(blurb);
+
+
+		Animations.testimonialPicture(thumbnail);
+		Animations.testimonialDetails(btn);
+		Animations.testimonialDetails(personName);
+
+		if( personTitle.length != 0 ){
+			let jobTitle = document.querySelector('h3.job-title');
+			Animations.testimonialDetails(jobTitle);
+		}
+
+		Animations.testimonialBlurb(blurb);
 
 	}
 }

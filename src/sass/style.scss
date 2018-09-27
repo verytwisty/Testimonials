@@ -23,6 +23,14 @@ $light-grey: #D1D1D1;
 		text-align: center;
 		color: $red;
 	}
+	h2.name{
+		transition: all 2s;
+		opacity: 0;
+	}
+	h3.job-title{
+		transition: all 2s;
+		opacity: 0;
+	}
 	.button{
 		margin: 5px auto;
 		background-color: $red;
@@ -31,6 +39,8 @@ $light-grey: #D1D1D1;
 		padding: 10px 13px;
 		color: #fff;
 		text-decoration: none;
+		transition: all 2s;
+		opacity: 0;
 	}
 	.testimonials-desc{
 		text-align: center;
@@ -45,6 +55,8 @@ $light-grey: #D1D1D1;
 		font-weight: 300;
 		line-height: 1.5;
 		position: relative;
+		opacity: 0;
+		transition: all 2s;
 		&:after{
 			content: '';
 			position: absolute;
@@ -67,6 +79,9 @@ $light-grey: #D1D1D1;
 			border-width: 16px 26px 16px 0;
 			border-color: transparent $red transparent transparent;
 		}
+	}
+	.visible{
+		opacity: 1 !important;
 	}
 	.testimonials-circle{
 		text-align: center;
@@ -93,6 +108,7 @@ $light-grey: #D1D1D1;
 		.large-thumb{
 			border-radius: 50%;
 			border: 2px solid transparent;
+			transition: all 0.8s ease-in-out;
 			&.border{
 				border: 2px solid $red;
 			}
@@ -101,6 +117,9 @@ $light-grey: #D1D1D1;
 				height: auto;
 				border-radius: 50%;
 			}
+		}
+		.thumbnail{
+			transition: all 1s ease-in-out;
 		}
 		.small-thumb{
 			width: 50px;
@@ -150,8 +169,8 @@ $light-grey: #D1D1D1;
 			}
 		}
 		.large-thumb{
-			width: 200px;
-			height: 200px;
+			// width: 200px;
+			// height: 200px;
 			padding: 30px;
 			position: relative;
 			margin: 0 auto;

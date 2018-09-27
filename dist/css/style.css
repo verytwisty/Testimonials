@@ -15,6 +15,12 @@
   #testimonials-body h2 {
     text-align: center;
     color: #E24A4A; }
+  #testimonials-body h2.name {
+    transition: all 2s;
+    opacity: 0; }
+  #testimonials-body h3.job-title {
+    transition: all 2s;
+    opacity: 0; }
   #testimonials-body .button {
     margin: 5px auto;
     background-color: #E24A4A;
@@ -22,7 +28,9 @@
     display: inline-block;
     padding: 10px 13px;
     color: #fff;
-    text-decoration: none; }
+    text-decoration: none;
+    transition: all 2s;
+    opacity: 0; }
   #testimonials-body .testimonials-desc {
     text-align: center;
     padding: 10px 40px;
@@ -34,7 +42,9 @@
     padding: 15px 20px;
     font-weight: 300;
     line-height: 1.5;
-    position: relative; }
+    position: relative;
+    opacity: 0;
+    transition: all 2s; }
     #testimonials-body .quote:after {
       content: '';
       position: absolute;
@@ -55,6 +65,8 @@
       border-style: solid;
       border-width: 16px 26px 16px 0;
       border-color: transparent #E24A4A transparent transparent; }
+  #testimonials-body .visible {
+    opacity: 1 !important; }
   #testimonials-body .testimonials-circle {
     text-align: center;
     position: relative; }
@@ -76,7 +88,8 @@
     #testimonials-body .testimonials-circle .small-thumb,
     #testimonials-body .testimonials-circle .large-thumb {
       border-radius: 50%;
-      border: 2px solid transparent; }
+      border: 2px solid transparent;
+      transition: all 0.8s ease-in-out; }
       #testimonials-body .testimonials-circle .small-thumb.border,
       #testimonials-body .testimonials-circle .large-thumb.border {
         border: 2px solid #E24A4A; }
@@ -85,6 +98,8 @@
         width: 100%;
         height: auto;
         border-radius: 50%; }
+    #testimonials-body .testimonials-circle .thumbnail {
+      transition: all 1s ease-in-out; }
     #testimonials-body .testimonials-circle .small-thumb {
       width: 50px;
       height: 50px;
@@ -126,8 +141,6 @@
         #testimonials-body .testimonials-circle .small-thumb div.visible {
           display: block; }
     #testimonials-body .testimonials-circle .large-thumb {
-      width: 200px;
-      height: 200px;
       padding: 30px;
       position: relative;
       margin: 0 auto; }

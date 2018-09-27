@@ -1,5 +1,6 @@
 import config from './config.js';
 import Router from './Router.js';
+import Animations from './Animations.js';
 
 
 export default class Helpers{
@@ -26,14 +27,18 @@ export default class Helpers{
 		return newCircle;
 	}
 	static createSmallThumbnail( x, y, person ){
+
 		let thumbnail = document.createElement('div'),
 			thumbImage = person._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url;
 
 		thumbnail.classList.add('small-thumb');
-		thumbnail.setAttribute("style", "left:" + x + "px; top:" + y +"px;");
+		// thumbnail.setAttribute("style", "left:" + x + "px; top:" + y +"px;");
+
 
 		thumbnail.append( Helpers.createImg( thumbImage ) );
 		thumbnail.append( Helpers.createPersonName( person.title.rendered, 'div', 'tool-tip' ) );
+
+		// Animations.test( thumbnail, x, y );
 
 		return thumbnail;
 	}
@@ -57,6 +62,8 @@ export default class Helpers{
 			titleTxt = document.createTextNode(title);
 
 		titleMarkup.append(titleTxt);
+		titleMarkup.classList.add('job-title');
+
 		return titleMarkup;
 	}
 	static createBackBtn(){
@@ -117,6 +124,8 @@ export default class Helpers{
 		    if( false === responsive ){
 
 			    let personThumb = Helpers.createSmallThumbnail( x, y, personData );
+
+			    Animations.test( personThumb, x, y, circleWidth );
 
 			    circle.append(personThumb );
 
