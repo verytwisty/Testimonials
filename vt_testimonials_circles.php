@@ -3,7 +3,7 @@
  * Plugin's bootstrap file to launch the plugin.
  *
  * @package     VeryTwisty Testimonials Circles
- * @author      Belinda Mustoe (verytwisty)
+ * @author      Belinda Mustoe (www.verytwisty.com)
  * @license     GPL2+
  *
  * @wordpress-plugin
